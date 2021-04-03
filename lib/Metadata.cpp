@@ -49,6 +49,12 @@ void Metadata::set(char *key, void *value)
 	}
 	while (node)
 	{
+		if (node->key == key)
+		{
+			free(nextElement);
+			node->value = value;
+			return;
+		}
 		if (node->Next == 0)
 		{
 			node->Next = nextElement;
